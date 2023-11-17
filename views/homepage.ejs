@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE-edge">
+        <meta name = "viewport" content ="width=device-width, initial scale =1.0">
+        <title>Portshowlio </title>
+       
+        <link rel = "stylesheet" href ="./styled.css">
+        
+
+        <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+    </head>
+    <body>
+
+        <!-- <nav>
+            <div class="container">
+                <h2 class="log">
+                    Portshowlio
+                </h2>
+                    <div class="search-bar">
+                        <i class="uil uil-search"></i>
+                        <input type ="search" placeholder="Search for stocks,friends and more"> 
+                        
+                    </div>
+                    <div class="create">
+                        <label class="btn btn-primary" for="create-post">Create</label>
+                        <div class="profile-picture">
+                            <img src="./profilepic.png" alt=""> 
+                        </div>
+                    </div>
+            </div>
+        </nav> --> 
+        <div>
+        <nav>
+
+            <h1><a href="/homepage">Port-Show-Lio</a></h1>
+            <ul>
+              <% if (user) { %>
+                <li><a href="/profile" >My account</a></li>
+                <li><a href="/logout"class="btn">Log out</a></li>
+              <% } else { %>
+                <li><a href="/login">Log in</a></li>
+                <li><a href="/signup" class="btn">Sign up</a></li>
+              <% } %>
+            </ul>
+          </nav>
+        </div>
+         
+
+        <!----------main-------------->
+
+        <main>
+            <div class="container">
+                <div class="left">
+                    <div class="sidebar">
+                    <a class="profile">
+                        <div class="profile-picture">
+                           <img src=".\prof.png">
+                        </div>
+                        <div class="handle">
+                           <h4><%= user.firstName %> <%= user.lastName %></h4> 
+                           <p class ="text-muted">
+                          <%= user.email %>
+                        </p>
+                        </div>
+                    </a>
+                
+    
+                    <!-- sidebar -->
+                    
+                        <a class="menu-item active" href = /homepage>
+                            <span><i class ="uil uil-home" ><h3>Home</h3></i></span>
+                        </a>
+                        <a 
+                              href = /followers class="menu-item">
+                               <span><i class ="uil uil-user-check" ><h3>Following</h3></i></span>
+                        </a>
+                         <a  href = /portfolio class="menu-item">
+                            <span><i class ="uil uil-chart-pie" ><h3>Portfolio</h3></i></span>
+                        </a>
+                        <a class="menu-item"  href="/addFriend">
+                            <span><i class ="uil uil-users-alt" ><h3>Friends</h3></i></span>
+                        </a>
+                        <!--Notif Popup-->
+                        <!-- <div class="notifications-popup">
+                            
+                                <div class="profile-picture">
+                                    <img src=".\profilepic.png">
+                                </div>
+                                <div class="notification-body">
+                                    <b> Coca-Cola</b> stocks have dropped 1.2% 
+                                    <small class="text-muted">Today</small>
+                                </div>
+                                <div class="profile-picture">
+                                    <img src=".\profilepic.png">
+                                </div>
+                                <div class="notification-body">
+                                    <b> </b> Jodie Smith sent you a message.
+                                    <small class="text-muted">2d ago.</small>
+                                </div>
+                                <div class="profile-picture">
+                                    <img src=".\profilepic.png">
+                                </div>
+                                <div class="notification-body">
+                                    <b> </b> Jodie Smith sent you a message.
+                                    <small class="text-muted">2d ago.</small>
+                                </div>
+                        
+                        </div> -->
+                        
+                        
+                        <a class="menu-item" href="/stocks">
+                            <span><i class ="uil uil-comparison" ><h3>Stocks</h3></i></span>
+                        </a>
+                        <!-- <a class="menu-item">
+                            <span><i class ="uil uil-setting" ><h3>Settings</h3></i></span>
+                        </a> -->
+                    </div>
+                    <!-- <label for ="create-post" class = "btn btn-primary">Create Post</label> -->
+                </div>
+                   <!--end of sidebar-->
+                   
+
+                    <!-- middle -->
+                    
+                    
+                        <!--post bar-->
+                <div class="middle">
+                    <!-- <form class="create-post">
+                       <div class="profile-picture">
+                        <img src=".//profilepic.png">
+                       </div>
+                        <input type="text" placeholder="What's on your mind?" id="create-post">
+                        <input type="submit" value="Post" class="btn btn-primary">
+
+                    </form> -->
+                
+
+                    <!--posts-->
+
+                    <div class ="feeds">
+                            
+                        <div class="feed">
+                            <div class="head">
+                                <div class="user">
+                                <div class="profile-picture">
+                                    <img src=".//rte.jpg">
+                                </div>
+    
+                                    <div class="ingo">
+                                        <h3>RTE</h3>
+                                        <small>Just now</small>
+                                </div>
+    
+                                </div>
+                                <span class="edit">
+                                    <i class="uil uil-ellipsis-h" ></i>
+                                 <span>
+                            </div>
+    
+                            <div class="photo">
+                                <img src=".//plane.png">
+                            </div>
+                            <div class="action-button">
+                                <div class="interaction-buttons">
+                                    <span> 
+                                        <i class= "uil uil-heart"></i>
+                                    </span>
+                                    <span> 
+                                        <i class= "uil uil-comment"></i>
+                                    </span>
+                                    <span> 
+                                        <i class= "uil uil-share"></i>
+                                    </span>
+                                </div>
+                                <div class="bookmark">
+                                    <span> 
+                                        <i class= "uil uil-bookmark"></i>
+                                    </span>
+                                </div>
+                            </div>
+    
+                            <div class="liked-by">
+                                <span><img src=".\\likedby1.jpg" alt="" ></span>
+                                <span><img src=".\\likedby2.jpg" alt="" ></span>
+                                <span><img src=".\\likedby3.jpg" alt="" ></span>
+                              
+                              
+                                <p>liked by <b>Elizabeth Queen</b> and <b>75 others</b></p>
+                            </div>
+    
+                            <div class="caption">
+                                <p><b>RTE</b> Ryanair will be lucky to get 40 new Boeing jets by June –
+                                    CEO
+                                    Ryanair ($RYAAY)ll be lucky to receive 40 Boeing ($BA) 737 MAX aircraft by the end of June
+                                    from the 51 due for delivery, Chief Executive Michael O'Leary said on Tuesday, potentially
+                                    impacting the airline's planned growth for 2023. <span class ="harsh-tag">
+                                        <a href="https://www.reuters.com/business/aerospace-defense/ryanair-will-be-lucky-get-40-new-boeing-jets-by-june-ceo-2022-11-29/">Click here to read more</a>
+                                    </span></p>
+                            </div>
+                            <div class=" comments text-muted">View All comments</div>
+                        </div>
+                    
+                        <div class="feed">
+                        <div class="head">
+                            <div class="user">
+                            <div class="profile-picture">
+                                <img src=".//cnn.png">
+                            </div>
+    
+                                <div class="ingo">
+                                    <h3>CNN</h3>
+                                    <small>Just now</small>
+                            </div>
+    
+                            </div>
+                            <span class="edit">
+                                <i class="uil uil-ellipsis-h" ></i>
+                             <span>
+                        </div>
+    
+                        <div class="photo">
+                            <img src=".//stock.png">
+                        </div>
+                        <div class="action-button">
+                            <div class="interaction-buttons">
+                                <span> 
+                                    <i class= "uil uil-heart"></i>
+                                </span>
+                                <span> 
+                                    <i class= "uil uil-comment"></i>
+                                </span>
+                                <span> 
+                                    <i class= "uil uil-share"></i>
+                                </span>
+                            </div>
+                            <div class="bookmark">
+                                <span> 
+                                    <i class= "uil uil-bookmark"></i>
+                                </span>
+                            </div>
+                        </div>
+    
+                        <div class="liked-by">
+                            <span><img src=".\\likedby1.jpg" alt="" ></span>
+                            <span><img src=".\\likedby2.jpg" alt="" ></span>
+                            <span><img src=".\\likedby3.jpg" alt="" ></span>
+                            <p>liked by <b>Yo Maet</b> and <b>300 others</b></p>
+                        </div>
+    
+                        <div class="caption">
+                            <p><b>CNN</b>“Global stocks to grind higher, lacklustre year ahead”
+                                - The global economy needs to find a more solid footing before most stock markets break out of
+                                their torpor, according to market strategists polled by Reuters who have broadly cut their 2023
+                                forecasts compared with three months ago. <span class ="harsh-tag">
+                                    <a href="https://www.reuters.com/markets/poll-global-stocks-grind-higher-lacklustre-year-ahead2022-11-30">Click here to read more</a>
+                                </span></p>
+                        </div>
+                        <div class=" comments text-muted">View All comments</div>
+                    </div>
+    
+    
+                    
+               
+                <div class="feed">
+                    <div class="head">
+                        <div class="user">
+                        <div class="profile-picture">
+                            <img src=".\\cnbc.png">
+                        </div>
+    
+                            <div class="ingo">
+                                <h3>CNBC</h3>
+                                <small>Just now</small>
+                        </div>
+    
+                        </div>
+                        <span class="edit">
+                            <i class="uil uil-ellipsis-h" ></i>
+                         <span>
+                    </div>
+    
+                    <div class="photo">
+                        <img src=".//oil.png">
+                    </div>
+                    <div class="action-button">
+                        <div class="interaction-buttons">
+                            <span> 
+                                <i class= "uil uil-heart"></i>
+                            </span>
+                            <span> 
+                                <i class= "uil uil-comment"></i>
+                            </span>
+                            <span> 
+                                <i class= "uil uil-share"></i>
+                            </span>
+                        </div>
+                        <div class="bookmark">
+                            <span> 
+                                <i class= "uil uil-bookmark"></i>
+                            </span>
+                        </div>
+                    </div>
+    
+                    <div class="liked-by">
+                        <span><img src=".\\likedby1.jpg" alt="" ></span>
+                        <span><img src=".\\likedby2.jpg" alt="" ></span>
+                        <span><img src=".\\likedby3.jpg" alt="" ></span>
+                        <p>liked by <b>Yo Maet</b> and <b>300 others</b></p>
+                    </div>
+    
+                    <div class="caption">
+                        <p><b>CNBC</b>“OPEC+ to consider deeper oil output cuts”
+                            - OPEC+, a group of 23 oil-producing nations led by Saudi Arabia and Russia, will convene on
+                            Sunday to decide on the next phase of production policy as Energy market participants
+                            remain wary about the European Union’s sanctions on the purchases of the
+                            Kremlin’s seaborne crude exports on Dec. 5, while the prospect of a G-7 price cap on
+                            Russian oil is another source of uncertainty.
+                             <span class ="harsh-tag">
+                                <a href="https://www.cnbc.com/2022/12/02/opec-meeting-oil-output-cuts-on-the-table-ahead-of-russia-sanctions.html">Click here to read more</a>
+                            </span></p>
+                    </div>
+                    <div class=" comments text-muted">View All comments</div>
+                         </div>
+                       
+    
+                     <div class="feed">
+                        <div class="head">
+                            <div class="user">
+                            <div class="profile-picture">
+                                <img src=".//wsj.png">
+                            </div>
+        
+                                <div class="ingo">
+                                    <h3>Wall Street Journal</h3>
+                                    <small>2h ago</small>
+                            </div>
+        
+                            </div>
+                            <span class="edit">
+                                <i class="uil uil-ellipsis-h" ></i>
+                             <span>
+                        </div>
+        
+                        <div class="photo">
+                            <img src=".\\bitcoin.jpg">
+                        </div>
+                        <div class="action-button">
+                            <div class="interaction-buttons">
+                                <span> 
+                                    <i class= "uil uil-heart"></i>
+                                </span>
+                                <span> 
+                                    <i class= "uil uil-comment"></i>
+                                </span>
+                                <span> 
+                                    <i class= "uil uil-share"></i>
+                                </span>
+                            </div>
+                            <div class="bookmark">
+                                <span> 
+                                    <i class= "uil uil-bookmark"></i>
+                                </span>
+                            </div>
+                        </div>
+        
+                        <div class="liked-by">
+                            <span><img src=".\\likedby1.jpg" alt="" ></span>
+                            <span><img src=".\\likedby2.jpg" alt="" ></span>
+                            <span><img src=".\\likedby3.jpg" alt="" ></span>
+                            <p>liked by <b>Joe Turp</b> and <b>380 others</b></p>
+                        </div>
+        
+                        <div class="caption">
+                            <p><b>Wall Street Journal</b>
+                                “Cryptoverse: Forget crypto winter, this is a bitcoin
+'bloodbath’ ”
+- Bitcoin balances on crypto exchanges - where retail investors typically transact - have fallen to
+around 2.3 million from its 2020 all-time high of 3.1 million, exchange Bitfinex said. Self-custody
+wallet balances have not grown at the same pace, indicating more selling than storage.
+                                 <span class ="harsh-tag">
+                                    <a href="https://www.reuters.com/technology/cryptoverse-forget-crypto-winter-this-is-bitcoin-bloodbath-2022-12-06/">Click here to read more</a>
+                                </span></p>
+                        </div>
+                        <div class=" comments text-muted">View All comments</div>
+                            
+                         </div>
+
+
+                         <div class="feed">
+                            <div class="head">
+                                <div class="user">
+                                <div class="profile-picture">
+                                    <img src=".//cnn.png">
+                                </div>
+            
+                                    <div class="ingo">
+                                        <h3>CNN</h3>
+                                        <small>Just now</small>
+                                </div>
+            
+                                </div>
+                                <span class="edit">
+                                    <i class="uil uil-ellipsis-h" ></i>
+                                 <span>
+                            </div>
+            
+                            <div class="photo">
+                                <img src=".\\zuck.png">
+                            </div>
+                            <div class="action-button">
+                                <div class="interaction-buttons">
+                                    <span> 
+                                        <i class= "uil uil-heart"></i>
+                                    </span>
+                                    <span> 
+                                        <i class= "uil uil-comment"></i>
+                                    </span>
+                                    <span> 
+                                        <i class= "uil uil-share"></i>
+                                    </span>
+                                </div>
+                                <div class="bookmark">
+                                    <span> 
+                                        <i class= "uil uil-bookmark"></i>
+                                    </span>
+                                </div>
+                            </div>
+            
+                            <div class="liked-by">
+                                <span><img src=".\\likedby1.jpg" alt="" ></span>
+                                <span><img src=".\\likedby2.jpg" alt="" ></span>
+                                <span><img src=".\\likedby3.jpg" alt="" ></span>
+                                <p>liked by <b>Joe Turp</b> and <b>380 others</b></p>
+                            </div>
+            
+                            <div class="caption">
+                                <p><b>CNN</b>"Meta Platforms pull Wall Street lower”
+                                    - Meta ($META) slid 5.8% and weighed heavily on the S&P 500 ($SPY) and the Nasdaq ($NDAQ)
+                                    after a report on an EU ruling that said Facebook and Instagram should not require users to
+                                    agree to personalized ads based on their digital activity <span class ="harsh-tag">
+                                        <a href="- https://www.reuters.com/markets/us/futures-subdued-after-sharp-wall-st-selloff-fedworries-2022-12-06/">Click here to read more</a>
+                                    </span></p>
+                            </div>
+                            <div class=" comments text-muted">View All comments</div>
+                                
+                             </div>
+                             <div class="feed">
+                                <div class="head">
+                                    <div class="user">
+                                    <div class="profile-picture">
+                                        <img src=".//euronews.jpg">
+                                    </div>
+                
+                                        <div class="ingo">
+                                            <h3>Euro News</h3>
+                                            <small>2h ago</small>
+                                    </div>
+                
+                                    </div>
+                                    <span class="edit">
+                                        <i class="uil uil-ellipsis-h" ></i>
+                                     <span>
+                                </div>
+                
+                                <div class="photo">
+                                    <img src=".\\receipt.jpg">
+                                </div>
+                                <div class="action-button">
+                                    <div class="interaction-buttons">
+                                        <span> 
+                                            <i class= "uil uil-heart"></i>
+                                        </span>
+                                        <span> 
+                                            <i class= "uil uil-comment"></i>
+                                        </span>
+                                        <span> 
+                                            <i class= "uil uil-share"></i>
+                                        </span>
+                                    </div>
+                                    <div class="bookmark">
+                                        <span> 
+                                            <i class= "uil uil-bookmark"></i>
+                                        </span>
+                                    </div>
+                                </div>
+                
+                                <div class="liked-by">
+                                    <span><img src=".\\likedby1.jpg" alt="" ></span>
+                                    <span><img src=".\\likedby2.jpg" alt="" ></span>
+                                    <span><img src=".\\likedby3.jpg" alt="" ></span>
+                                    <p>liked by <b>Joe Turp</b> and <b>380 others</b></p>
+                                </div>
+                
+                                <div class="caption">
+                                    <p><b>Euro News</b>
+                                        “Europe's inflation problem will linger for years to come”
+- If disinflation proves too slow, firms and consumers may lose confidence in the ECB‘s
+commitment and adjust their wage- and price-setting behaviour to reflect higher inflation,
+perpetuating rapid price growth.
+
+                                         <span class ="harsh-tag">
+                                            <a href="http://www.euronews.com/next/2022/12/06/eurozone-economy-inflation">Click here to read more</a>
+                                        </span></p>
+                                </div>
+                                <div class=" comments text-muted">View All comments</div>
+                                    
+                                 </div>
+                                 <div class="feed">
+                                    <div class="head">
+                                        <div class="user">
+                                        <div class="profile-picture">
+                                            <img src=".//cnbc.png">
+                                        </div>
+                    
+                                            <div class="ingo">
+                                                <h3>CNBC</h3>
+                                                <small>2h ago</small>
+                                        </div>
+                    
+                                        </div>
+                                        <span class="edit">
+                                            <i class="uil uil-ellipsis-h" ></i>
+                                         <span>
+                                    </div>
+                    
+                                    <div class="photo">
+                                        <img src=".\\iphone.jpg">
+                                    </div>
+                                    <div class="action-button">
+                                        <div class="interaction-buttons">
+                                            <span> 
+                                                <i class= "uil uil-heart"></i>
+                                            </span>
+                                            <span> 
+                                                <i class= "uil uil-comment"></i>
+                                            </span>
+                                            <span> 
+                                                <i class= "uil uil-share"></i>
+                                            </span>
+                                        </div>
+                                        <div class="bookmark">
+                                            <span> 
+                                                <i class= "uil uil-bookmark"></i>
+                                            </span>
+                                        </div>
+                                    </div>
+                    
+                                    <div class="liked-by">
+                                        <span><img src=".\\likedby1.jpg" alt="" ></span>
+                                        <span><img src=".\\likedby2.jpg" alt="" ></span>
+                                        <span><img src=".\\likedby3.jpg" alt="" ></span>
+                                        <p>liked by <b>Joe Turp</b> and <b>380 others</b></p>
+                                    </div>
+                    
+                                    <div class="caption">
+                                        <p><b>CNBC</b>
+                                            “Apple shares slip on report iPhone production taking a
+big hit from unrest at factory in China”
+- Shares of Apple fell 2.6% Monday after Bloomberg reported the company could see
+a production shortfall of nearly 6 million iPhone Pro models because of unrest at a
+Foxconn factory in China.
+
+                                            
+    
+                                             <span class ="harsh-tag">
+                                                <a href="https://www.cnbc.com/2022/11/28/apple-stock-down-on-report-of-iphone-productionshortage.htm">Click here to read more</a>
+                                            </span></p>
+                                    </div>
+                                    <div class=" comments text-muted">View All comments</div>
+                                        
+                                     </div>
+                                 
+             
+             
+             
+             
+             
+             
+             
+             
+             
+             
+             
+             
+             
+             
+             
+             
+             
+                    
+                        </div>
+
+                        <%- include('partials/footer'); -%>
+                </div>
+                <!-- right -->
+                <div class="right">
+                    
+                </div>
+            </div>
+        </main>
+    </body>
+    
+ 
+    <script >
+        const menuItem = document.querySelectorAll('.menu-item');
+
+const changeActiveItem =() =>{
+    menuItem.forEach(item => {
+         item.classList.remove('active');
+    });
+}
+
+
+menuItem.forEach(item => {
+    item.addEventListener('click',()=>{
+        changeActiveItem();
+        item.classList.add('active');
+        if (item.id !='notifications')
+        {
+            document.querySelector('.notifications-popup').style.display='none';
+        }
+        else{
+            document.querySelector('.notifications-popup').style.display='block';
+            document.querySelector('#notifications .notification-count').style.display='none';
+        }
+    })
+});
+// function shuffle(array) {
+//     var currentIndex = array.length, temporaryValue, randomIndex;
+//     // While there remain elements to shuffle...
+//     while (0 !== currentIndex) {
+//       // Pick a remaining element...
+//       randomIndex = Math.floor(Math.random() * currentIndex);
+//       currentIndex -= 1;
+//       // And swap it with the current element.
+//       temporaryValue = array[currentIndex];
+//       array[currentIndex] = array[randomIndex];
+//       array[randomIndex] = temporaryValue;
+//     }
+//     return array;
+//   }
+//   var divs = document.getElementsByClassName('feeds');
+//   var divsArray = Array.prototype.slice.call(divs);
+//   var shuffledDivs = shuffle(divsArray);
+//   for (var i = 0; i < shuffledDivs.length; i++) {
+//     document.body.appendChild(shuffledDivs[i]);
+//   }
+// $(".feed").each(function(){
+//     var divs = document.getElementsByClassName('feeds');
+//     divs= Array.prototype.slice.call(divs);
+//     for(var i = 0; i < divs.length; i++) $(divs[i]).remove();
+//     for(var i = 0; i < divs.length; i++) $(divs[i]).appendTo(this);
+//     document.body.appendChild(divs[i]);
+// })
+    </script>
+
+

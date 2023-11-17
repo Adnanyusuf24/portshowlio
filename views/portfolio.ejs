@@ -1,0 +1,25 @@
+<%- include('partials/header'); -%>
+<br>
+    <title>Invested stocks</title>
+    <% if (stock) { %>
+        <% stock.forEach(function(stock) { %>
+            <% if (stock.email==user.email) { %>
+                <% console.log(stock) %>        
+                <li class="recipe">
+                    <br>
+                    <img src="/lol.png" alt="smoothie recipe icon">
+                    <h4><%= stock.stock%></h4>
+                    <p>Shares: <%= stock.shares%></p>
+                  </li>
+            <%}%>
+            
+        <% }); %>
+    <% } else { %>
+        <li class="recipe">
+            <img src="/lol.png" alt="smoothie recipe icon">
+            <p>No stocks available</p>egf6w4ycvnjiksdfrhjvui9erhf8ucewgyufc2yh3gvfdt734gfhgyefvb
+            <li><a href="/stocks"class="btn">Add stock now</a></li>
+        </li>
+        <% } %>
+
+<%- include('partials/footer'); -%>

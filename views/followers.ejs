@@ -1,0 +1,35 @@
+<%- include('partials/header'); -%>
+<br>
+<br>
+<br>
+<br>
+    <title>Invested stocks </title>
+    <a></a>
+    <% if (follower) { %>
+        <h1><% follower.myEmail %> </h1>
+        <% follower.forEach(function(follower) { %>
+            <% if (follower.myEmail==user.email) { %>    
+                <li class="recipe">
+                    <img src="/profilepic.png" alt="smoothie recipe icon">
+                    <p><%= follower.email%></p>        
+                </li>
+                  
+            <%}%>
+            
+        <% }); %>
+    <% } else { %>
+        <li class="recipe">
+            <img src="/lol.png" alt="smoothie recipe icon">
+            <p>No friends available</p>
+            <li><a href="/addFriend"class="btn">Add friends now</a></li>
+        </li>
+        <% } %>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+<%- include('partials/footer'); -%>

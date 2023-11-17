@@ -1,0 +1,54 @@
+<%- include('partials/header'); -%>
+
+<form action="/addFriend">
+  <h2>Add Friend</h2>
+  <label for="myEmail">Enter your email</label>
+  <input type="text" name="myEmail"  />
+  <div class="myEmail error"></div>
+
+  <label for="email">Enter other users email </label>
+  <input type="text" name="email"  />
+  <div class="email error"></div>
+  <button>Add Friend</button>
+</form>
+
+<%- include('partials/footer'); -%>
+
+
+<script>
+    const form = document.querySelector('form');
+    const emailError = document.querySelector('.email.error');
+    const myEmailError = document.querySelector('.myEmail.error');
+  
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+  
+      // reset errors
+      emailError.textContent = '';
+  
+      // get values
+      const email = form.email.value;
+      const myEmail = form.myEmail.value;
+  
+      try {
+        const res = await fetch('/addFriend', { 
+          method: 'POST', 
+          body: JSON.stringify({ myEmail,email }),
+          headers: {'Content-Type': 'application/json'}
+        });
+        const data = await res.json();
+        console.log(data);
+        if (data.errors) {
+          emailError.textContent = data.errors.email;
+          emailError.textContent = data.errors.myEmail;
+        }
+        else {
+          location.assign('/homepage');
+        }
+  
+      }
+      catch (err) {
+        console.log(err);
+      }
+    });
+  </script>

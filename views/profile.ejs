@@ -1,0 +1,55 @@
+<%- include('partials/header'); -%>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>My Profile</title>
+    <!-- import font icon (fontawesome) -->
+    <script src="https://kit.fontawesome.com/b8b432d7d3.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="container">
+
+        <div class="profile-card">
+            <div class="profile-header"><!-- profile header section -->
+                <div class="main-profile">
+                    <div class="profile-image"></div>
+                    <div class="profile-names">
+                        <h1 class="username"><%= user.firstName %> <%= user.lastName %></h1>
+                        <small class="page-title">Investor</small>
+                    </div>
+                </div>
+            </div>
+
+            
+            <div class="profile-body"><!-- profile body section -->
+                <div class="profile-actions"><button class="button">Account info</button>
+                    <li > <a> <strong>Email:</strong>
+                    <a><%= user.email %></a>    
+                    <li > <a> <strong>Password:</strong></a></li>
+                    <a>*******</a> 
+                    <li > <a> <strong>Bio:</strong></a></li>
+                    <a><%= user.bio %></a> 
+                    </section>
+                </div>
+
+                <div> </div>    
+
+                    <div class="last-post">
+                        
+                        
+                        <div>
+                            <div id="pieChart"></div>
+                            </div>
+                            
+                            <script>
+                            var ctx = document.getElementById("myChart").getContext('2d');
+                            </script>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>
+<%- include('partials/footer'); -%>

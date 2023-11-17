@@ -1,0 +1,65 @@
+<%- include('partials/header'); -%>
+
+<form action="/stocks">
+    <h2>Add stock</h2>
+    <label for="email">Enter Email</label>
+    <input type="text" name="email"  required/>
+    <div class="email error"></div>
+    
+    <label for="stock">Stock Name</label>
+    <input type="text" name="stock"  required/>
+    <div class="stock error"></div>
+    
+    <label for="shares">Enter Shares</label>
+    <input type="text" name="shares"  required/>
+    <div class="shares error"></div>
+
+    <button>Submit</button>
+  </form>
+  <%- include('partials/footer'); -%>
+
+  
+<script>
+  const form = document.querySelector('form');
+  const stockError = document.querySelector('.stock.error');
+  const emailError = document.querySelector('.stock.error');
+  const sharesError = document.querySelector('.shares.error');
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    
+
+    // reset errors
+    stockError.textContent = '';
+    sharesError.textContent = '';
+    emailError.textContent = '';
+
+    // get values
+    const stock = form.stock.value;
+    const shares = form.shares.value;
+    const email = form.email.value;
+    console.log(stock,shares,email);
+
+    try {
+      const res = await fetch('/stocks', { 
+        method: 'POST', 
+        body: JSON.stringify({email,stock,shares }),
+        headers: {'Content-Type': 'application/json'}
+      });
+      const data = await res.json();
+      console.log(data);
+      if (data.errors) {
+        stockError.textContent = data.errors.stock;
+        sharesError.textContent = data.errors.shares;
+        emailError.textContent = data.errors.email;
+      }
+      else {
+        location.assign('/homepage');
+      }
+
+    }
+    catch (err) {
+      console.log(err);
+    }
+  });
+</script>

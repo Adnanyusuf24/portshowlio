@@ -1,0 +1,125 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
+
+h1, h2, h3, h4, ul, li, a, p, input, label, button, div, footer{
+  margin: 0;
+  padding: 0;
+  font-family: 'Quicksand', sans-serif;
+  color: #444;
+}
+
+body{
+
+  font-family: 'Quicksand', sans-serif;
+	color: white;
+	text-align: center;
+	font-size: 14px;
+}
+
+
+.pie_chart_content{
+
+	height: 1100px;
+	background-image: url("/banner.jpeg");
+  background-size:cover;
+  background-repeat:no-repeat;
+}
+
+
+.overlay{
+
+	background-color: rgba(9, 65, 98, 0.5);
+	height: 1100px;
+	padding-top: 200px;
+padding-bottom: 200px;
+}
+
+.pie_chart_content .container{
+	background-color: white;
+	border-radius: 40px;
+	padding: 0px; 
+}
+.main_box canvas{
+ position:relative;
+  top: 30px;
+}
+
+.main_box span{
+  position: relative;
+  top: 20px;
+  left: 20px;
+	padding: 50px 0px 50px 0px;
+	color: black;
+	font-size: 25px;
+}
+
+.main_box span:active{
+  width:100%;
+  border:2px;
+  overflow: visible;
+}
+
+.main_box{
+	background-color: white;
+	height: 100%;
+	border-bottom-left-radius: 30px;
+	border-top-left-radius: 30px;
+}
+
+.count_box{
+
+	background-color: #829ae3;
+	border-bottom-right-radius: 30px;
+	border-top-right-radius: 30px;
+	height: 100%;
+	
+	padding: 100px;
+}
+
+
+
+.total-input{
+
+	background-color: #3546b0;
+	border: none;
+	color: white;
+}
+
+.form-control:disabled,
+.form-control[readonly]{
+
+	background-color: #3546b0;
+	opacity: 1;
+
+}
+
+.coronavirus-input{
+
+	background-color: #2adece;
+	border: none;
+	color: white;
+}
+
+.deaths-input{
+
+
+	background-color: #dd3b79;
+	border: none;
+	color: white;
+
+}
+
+
+.recovered-input{
+
+background-color: #ff766b;
+border: none;
+color: white;
+}
+
+.form-control:focus{
+
+	background-color: transparent;
+	color: white;
+	border: none;
+}
